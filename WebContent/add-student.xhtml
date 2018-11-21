@@ -25,7 +25,10 @@
 					<h:message for="firstname" style="color:red"/>
 					<h:outputText value="Email" />
 					<h:inputText id="email" value="#{StudentManager.newStudent.email}"
-						required="true" requiredMessage="email required" />
+						required="true" requiredMessage="email required" validatorMessage="Invalid email format">
+						<f:validateRegex pattern="^(.+)@(.+)$"/>
+					</h:inputText>
+
 					<h:message for="email" style="color:red"/>
 				</h:panelGrid>
 				<h:commandButton value="Ajouter" action="#{StudentManager.addStudent}"  styleClass="button"/>

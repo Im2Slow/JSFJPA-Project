@@ -6,19 +6,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.validation.constraints.Pattern;
+
 @Entity
 @Table(name="student")
 public class StudentEntity {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private int id;
-@NotNull @Size(min=2,max=20)
+@NotNull 
 private String firstname;
-@NotNull @Size(min=2,max=20)
+@NotNull
 private String lastname;
-@NotNull @Pattern(regexp="^(.+)@(.+)$")
+@NotNull
 private String email;
 public StudentEntity() { }
 public int getId() {
