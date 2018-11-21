@@ -20,4 +20,22 @@
 		<redirect />
 	</navigation-case>
 </navigation-rule>
+<navigation-rule>
+	<display-name>list</display-name>
+	<from-view-id>/list-student.xhtml</from-view-id>
+	<navigation-case>
+		<from-outcome>edit</from-outcome>
+		<to-view-id>/edit-student.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+</navigation-rule>
+<navigation-rule>
+	<display-name>edit</display-name>
+	<from-view-id>/edit-student.xhtml</from-view-id>
+	<navigation-case>
+		<from-outcome>list</from-outcome>
+		<to-view-id>/list-student.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+</navigation-rule>
 </faces-config>

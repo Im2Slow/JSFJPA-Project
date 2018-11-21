@@ -18,7 +18,7 @@ private int id;
 private String firstname;
 @NotNull @Size(min=2,max=20)
 private String lastname;
-@NotNull @Pattern(regexp="\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b")
+@NotNull @Pattern(regexp="^(.+)@(.+)$")
 private String email;
 public StudentEntity() { }
 public int getId() {

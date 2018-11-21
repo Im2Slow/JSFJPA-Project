@@ -7,7 +7,7 @@
 
 <h:head>
    <f:metadata>
-   <f:event type="preRenderView" listener="#{StudentManager.loadStudents()}"/>
+   <f:event type="preRenderView" listener="#{StudentManager.loadStudents}"/>
    </f:metadata>
     <h:outputStylesheet library="css" name="style.css" />
     <title>JSF JPA Web Student Book</title>
@@ -19,32 +19,32 @@
         <h:dataTable id="studentTable" value="#{StudentManager.students}" var="student" styleClass="blueTable">
             <h:column>
                 <f:facet name="header">Id</f:facet>
-                <h:outputText value="#{student.getId()}" />                
+                <h:outputText value="#{student.id}" />                
             </h:column>
             <h:column>
                 <f:facet name="header">First Name</f:facet>
-                <h:outputText value="#{student.getFirstname()}" />
+                <h:outputText value="#{student.firstname}" />
             </h:column>
             <h:column>
                 <f:facet name="header">Last Name</f:facet>
-                <h:outputText value="#{student.getLastname()}" />
+                <h:outputText value="#{student.lastname}" />
             </h:column>
             <h:column>
                 <f:facet name="header">Email</f:facet>
-                <h:outputText value="#{student.getEmail()}" />
+                <h:outputText value="#{student.email}" />
             </h:column>
             <h:column>
-                <f:facet name="header">Edit</f:facet>
-                <h:commandButton action="#{StudentManager.editStudent(student)}" value="Edit" styleClass="add-student">
+                <f:facet name="header"></f:facet>
+                <h:commandButton action="#{StudentManager.editStudent(student)}" value="Edit"  styleClass="button">
                 	<f:param name="selectedId" value="#{student.getId()}" />
                 </h:commandButton>
             </h:column>
             <h:column>
-                <f:facet name="header">Delete</f:facet>
-                <h:commandButton action="#{StudentManager.deleteStudent(student.getId())}" value="Delete" styleClass="add-student" />
+                <f:facet name="header"></f:facet>
+                <h:commandButton action="#{StudentManager.deleteStudent(student.id)}" value="Delete" styleClass="button"/>
             </h:column>
         </h:dataTable>
-        <center><h:commandButton action="add-student.xhtml?faces-redirect=true" value="Add New Student" styleClass="add-student" /></center>
+        <center><h:commandButton action="add-student.xhtml?faces-redirect=true" value="Add"  styleClass="button"/></center>
     </h:form>
 </h:body>
 </html>

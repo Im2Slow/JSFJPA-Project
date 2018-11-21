@@ -31,20 +31,23 @@ public class Student {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", first_Name=" + firstname + ", last_Name=" + lastname + ", email=" + email
+				+ "]";
 	}
-	public String getFirst_Name() {
+	public String getFirstname() {
 		return firstname;
 	}
-	public void setFirst_Name(String first_Name) {
-		this.firstname = first_Name;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
-	public String getLast_Name() {
+	public String getLastname() {
 		return lastname;
 	}
-	public void setLast_Name(String last_Name) {
-		this.lastname = last_Name;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 	public String getEmail() {
 		return email;
@@ -52,10 +55,8 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", first_Name=" + firstname + ", last_Name=" + lastname + ", email=" + email
-				+ "]";
+	public void setId(int id) {
+		this.id = id;
 	}
 }
 

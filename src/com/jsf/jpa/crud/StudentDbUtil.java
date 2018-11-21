@@ -24,8 +24,8 @@ public class StudentDbUtil {
 			et.begin();
 		}
 		StudentEntity newStudent = new StudentEntity();
-		newStudent.setFirstname(student.getFirst_Name());
-		newStudent.setLastname(student.getLast_Name());
+		newStudent.setFirstname(student.getFirstname());
+		newStudent.setLastname(student.getLastname());
 		newStudent.setEmail(student.getEmail());
 		em.persist(newStudent);
 		et.commit();
@@ -35,27 +35,19 @@ public class StudentDbUtil {
 			et.begin();
 		}
 		StudentEntity deleteStudent = new StudentEntity();
-		if(fetchStudent(id)!= null) {
-			deleteStudent.setId(id);
-			em.remove(em.merge(deleteStudent));
-		}
+		deleteStudent.setId(id);
+		em.remove(em.merge(deleteStudent));
+		et.commit();
 	}
-	public static void editStudent(Student student) {
+	public static void updateStudent(StudentEntity student) {
 		if(!et.isActive()) {
 			et.begin();
 		}
-		if(fetchStudent(student.getId())!=null) {
-		Query q = em.createQuery("UPDATE student set firstname =:firstname, lastname =:lastname, email =:email where id =:id");
-		q.setParameter("id", student.getId());
-		q.setParameter("firstname", student.getFirst_Name());
-		q.setParameter("lastname", student.getLast_Name());
-		q.setParameter("email", student.getEmail());
-		q.executeUpdate();
-		}
+		em.merge(student);
 		et.commit();
 	}
 	public static StudentEntity fetchStudent(int id) {
-		Query q = em.createQuery("SELECT * FROM student WHERE id = :id");
+		Query q = em.createQuery("SELECT s FROM StudentEntity s WHERE s.id = :id");
 		q.setParameter("id", id);
 		StudentEntity selectedStud = (StudentEntity) q.getSingleResult();
 		return selectedStud;

@@ -6,9 +6,6 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-	<f:metadata>
-		<f:event type="preRenderView" listener="#{StudentManager.newStudent}"/>
-	</f:metadata>
     <h:outputStylesheet library="css" name="style.css" />
     <title>JSF JPA Web Student Book</title>
 </h:head>
@@ -17,26 +14,23 @@
     <center><h2><h:outputText value="Add Student"/></h2></center>
 		<f:view>
 			<h:form>
-				<h:panelGrid border="0" columns="3" cellpadding="5">
+				<h:panelGrid border="0" columns="3" cellpadding="5" styleClass="panelGrid">
 					<h:outputText value="Firstname" />
-					<h:inputText id="firstName" value="#{StudentManager.newStudent.firstName}"
+					<h:inputText id="firstname" value="#{StudentManager.newStudent.firstname}"
 						required="true" requiredMessage="firstname required" />
-					<h:message for="firstName" />
-		
+					<h:message for="firstname" style="color:red"/>	
 					<h:outputText value="Lastname" />
-					<h:inputText id="lastName" value="#{StudentManager.newStudent.lastName}"
+					<h:inputText id="lastname" value="#{StudentManager.newStudent.lastname}"
 						required="true" requiredMessage="lastname required" />
-					<h:message for="firstName" />
-					<h:outputText />
-					
+					<h:message for="firstname" style="color:red"/>
 					<h:outputText value="Email" />
 					<h:inputText id="email" value="#{StudentManager.newStudent.email}"
 						required="true" requiredMessage="email required" />
-					<h:message for="email" />
-					<h:outputText />
-					<h:commandButton value="Ajouter" action="#{StudentManager.addStudent(newStudent)}" />
+					<h:message for="email" style="color:red"/>
 				</h:panelGrid>
+				<h:commandButton value="Ajouter" action="#{StudentManager.addStudent}"  styleClass="button"/>
 			</h:form>
+			<center><h:outputLink value="list-student.xhtml"><h:outputText value="Back to List" styleClass="outputText"></h:outputText></h:outputLink></center>
 		</f:view>
 </h:body>
 </html>
